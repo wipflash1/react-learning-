@@ -1,0 +1,21 @@
+.appname-container {
+  font-weight: 900;
+  margin: 10px;
+  margin-bottom: 12px;
+}
+.item-container {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.addtask-container {
+  text-align: left;
+}
+
+.kg-row {
+  margin: 10px;
+}
+
+.kg-button {
+  min-width: 80px;
+}
