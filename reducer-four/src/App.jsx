@@ -1,122 +1,92 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AddItems from "./components/AddItems";
+import Message from "./components/Message";
+import ToDoItems from "./components/ToDoItems";
+import { useReducer } from "react";
+import { ToDoItemsContext } from "./store/todo-items-store";
+
+/* crecting pure reducer function */
+const todoItemsReducer = (currToDoItems, action) => {
+  let newToDoItem = currToDoItems;
+  if (action.type == "ADD_ITEM") {
+    newToDoItem = [
+      ...currToDoItems,
+      {
+        id: action.payload.id,
+        name: action.payload.todoName,
+        dueDate: action.payload.todoDate,
+        completed: action.payload.completed,
+      },
+    ];
+  } else if (action.type == "DELETE_ITEM") {
+    newToDoItem = currToDoItems.filter(
+      (items) => items.id !== action.payload.todoId,
+    );
+  } else if (action.type == "TOGGLE_ITEM") {
+    if (items.id === action.payload.todoId) {
+      return {
+        ...currToDoItems,
+        completed: !items.completed,
+      };
+    }
+
+    return items;
+  }
+  return newToDoItem;
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todoItems, dispatchToDoItems] = useReducer(todoItemsReducer, []);
 
+  /* Add functionility with action object and dispatch */
+  const addItems = (todoName, todoDate) => {
+    const newAddAction = {
+      type: "ADD_ITEM",
+      payload: {
+        id: crypto.randomUUID(),
+        todoName: todoName,
+        todoDate: todoDate,
+        completed: false,
+      },
+    };
+    dispatchToDoItems(newAddAction);
+  };
+
+  /* Delete Functionlity with action obj and the dispatch */
+  const deleteItems = (todoId) => {
+    const newDeleteAction = {
+      type: "DELETE_ITEM",
+      payload: {
+        todoId: todoId,
+      },
+    };
+    dispatchToDoItems(newDeleteAction);
+  };
+  /* Toogle feature */
+  const toggleItem = (todoId) => {
+    const toggleAction = {
+      type: "TOGGLE_ITEM",
+      payload: {
+        todoId: todoId,
+      },
+    };
+    dispatchToDoItems(toggleAction);
+  };
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <ToDoItemsContext.Provider
+        value={{ todoItems, addItems, deleteItems, toggleItem }}
+      >
+        <center>
+          <h1> Welcome to the App </h1>
+          <AddItems />
+          <Message />
+          <ToDoItems />
+        </center>
+      </ToDoItemsContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
