@@ -6,6 +6,8 @@ function App() {
   const inputRef = useRef();
   const [todoItems, setToDoitems] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [editText, setEditText] = useState("");
+  const [editTextID, setEditTextID] = useState(null);
   /* Add Task */
   const handleAddTask = (event) => {
     event.preventDefault();
@@ -59,6 +61,49 @@ function App() {
     setToDoitems((previousItems) =>
       previousItems.filter((items) => items.completed !== true),
     );
+  }; /* Clear Button   */
+  const handleCancelButton = () => {
+    setEditTextID(null);
+    setEditText("");
+    console.log(`Items cancelled`);
+  };
+  const handleSaveEdit = (event) => {
+    if (event.key === "Enter") {
+      setToDoitems((previousItems) =>
+        previousItems.map((item) => {
+          if (item.id === editTextID) {
+            return { ...item, name: trimmedText };
+          }
+          return item;
+        }),
+      );
+      setEditText("");
+      setEditTextID(null);
+      console.log(`items are saved`);
+    }
+    const trimmedText = editText.trim();
+
+    if (trimmedText === "") {
+      return;
+    }
+
+    setToDoitems((previousItems) =>
+      previousItems.map((item) => {
+        if (item.id === editTextID) {
+          return { ...item, name: trimmedText };
+        }
+        return item;
+      }),
+    );
+    setEditText("");
+    setEditTextID(null);
+    console.log(`items are saved`);
+  };
+  /* Edit Task  Count */
+  const handleEditButton = (items) => {
+    setEditTextID(items.id);
+    setEditText(items.name);
+    console.log(`Edited task`);
   };
   /* Filter All */
   const handleFilterAll = () => {
@@ -127,16 +172,49 @@ function App() {
       <ul>
         {visibleTask.map((items) => (
           <li key={items.id}>
-            <span
-              style={{
-                textDecoration: items.completed ? "line-through" : "none",
-              }}
-            >
-              {items.name}
-            </span>
+            {editTextID === items.id ? (
+              <input
+                value={editText}
+                onChange={(event) => setEditText(event.target.value)}
+                onKeyDown={handleSaveEdit}
+              />
+            ) : (
+              <span
+                style={{
+                  textDecoration: items.completed ? "line-through" : "none",
+                }}
+              >
+                {items.name}
+              </span>
+            )}
             <button onClick={() => handleDeleteTask(items.id)}>
               Delete task
             </button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => handleEditButton(items)}
+            >
+              Edit
+            </button>
+            {editTextID === items.id && (
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={handleCancelButton}
+              >
+                Cancel
+              </button>
+            )}
+            {editTextID === items.id && (
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={handleSaveEdit}
+              >
+                Save
+              </button>
+            )}
             <input
               type="checkbox"
               checked={items.completed}
