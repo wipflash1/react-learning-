@@ -10,3 +10,19 @@
 .header-content {
   width: 100%;
 }
+
+.postCard {
+  margin: 20px 50px;
+}
+
+.hashtag {
+  margin: 0px 3px;
+}
+.reactions {
+  margin: 15px 0 0 0;
+}
+.createPost {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
+}
