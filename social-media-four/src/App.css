@@ -1,0 +1,19 @@
+.app-container {
+  display: flex;
+}
+.content-container {
+  flex: 1;
+  min-width: 0;
+}
+.side-content {
+  width: 280px;
+  min-height: 100%;
+}
+@media (max-width: 767px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .side-content {
+    width: 100%;
+  }
+}
