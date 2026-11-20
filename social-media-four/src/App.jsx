@@ -10,15 +10,21 @@ import Login from "./Components/Login";
 import { useState } from "react";
 import LoadSamplePosts from "./Components/LoadSamplePost";
 import { useAuth } from "./Store/auth-context";
+import LoadingSpinner from "./Components/LoadingSpinner";
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("Home");
   const goHome = () => setSelectedTab("Home");
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   if (!user) {
     return <Login />;
   }
+
   return (
     <PostListProvider>
       <div className="app-container">
