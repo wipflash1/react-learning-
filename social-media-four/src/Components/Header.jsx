@@ -43,7 +43,7 @@ const Header = () => {
         <div className="col-md-3 text-end">
           <div className="d-flex align-items-center justify-content-end gap-2">
             <span className="small text-body-secondary text-truncate">
-              Hi, <strong>{user.name}</strong>
+              Hi, <strong>{user.name?.split(" ")[0]}</strong>
             </span>
             <button
               type="button"
