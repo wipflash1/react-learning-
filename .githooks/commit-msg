@@ -1,0 +1,32 @@
+#!/bin/sh
+# commit-msg hook: commits that touch social-media-four/ (PostShelf) must start
+# with a ticket id, e.g. "PS-102: remove unused result variable in Login".
+# Other projects in this repo are not checked.
+
+msg_file="$1"
+first_line=$(head -n 1 "$msg_file")
+
+# Let git's own generated messages through.
+case "$first_line" in
+  Merge*|Revert*|fixup!*|squash!*|amend!*) exit 0 ;;
+esac
+
+# Only enforce when the commit includes PostShelf files.
+if ! git diff --cached --name-only | grep -q '^social-media-four/'; then
+  exit 0
+fi
+
+if printf '%s\n' "$first_line" | grep -Eq '^PS-[0-9]+: .{3,}'; then
+  exit 0
+fi
+
+cat >&2 <<MSG
+✖ Commit rejected: PostShelf commits need a ticket prefix.
+
+  Your message:  $first_line
+  Expected:      PS-<number>: <what changed>
+  Example:       PS-102: remove unused result variable in Login
+
+See social-media-four/CONTRIBUTING.md for the full workflow.
+MSG
+exit 1
