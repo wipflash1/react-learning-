@@ -4,7 +4,7 @@ import { auth, provider } from "../firebase";
 const Login = ({ onShowSignUp }) => {
   const handleLogin = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
+      await signInWithPopup(auth, provider);
     } catch (error) {
       console.error(error);
     }
@@ -24,7 +24,7 @@ const Login = ({ onShowSignUp }) => {
               width={140}
               className="mb-3"
             />
-            <h1 className="h3 fw-bold mb-1">Welcome back</h1>
+            <h1 className="h3 fw-bold mb-1">Welcome To PostShelf</h1>
           </div>
           <button
             type="button"
