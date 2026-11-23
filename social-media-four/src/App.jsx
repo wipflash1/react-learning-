@@ -11,6 +11,7 @@ import { useState } from "react";
 import LoadSamplePosts from "./Components/LoadSamplePost";
 import { useAuth } from "./Store/auth-context";
 import LoadingSpinner from "./Components/LoadingSpinner";
+import NewsFeed from "./features/news-feed/NewsFeed";
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("Home");
@@ -37,6 +38,7 @@ function App() {
           {selectedTab === "LoadSamplePosts" && (
             <LoadSamplePosts onLoaded={goHome} />
           )}
+          {selectedTab === "News" && <NewsFeed />}
           <Footer />
         </div>
       </div>
