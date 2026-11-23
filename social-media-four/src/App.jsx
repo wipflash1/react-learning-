@@ -14,6 +14,7 @@ import LoadingSpinner from "./Components/LoadingSpinner";
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("Home");
+  const [authPage, setAuthPage] = useState("Login");
   const goHome = () => setSelectedTab("Home");
   const { user, loading } = useAuth();
 

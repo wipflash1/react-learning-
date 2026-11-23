@@ -1,13 +1,10 @@
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 
-const Login = ({ onLoggedIn }) => {
+const Login = ({ onShowSignUp }) => {
   const handleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      console.log("Logged in:", result.user.displayName);
-
-      onLoggedIn?.();
     } catch (error) {
       console.error(error);
     }
@@ -16,7 +13,7 @@ const Login = ({ onLoggedIn }) => {
   return (
     <section className="d-flex justify-content-center px-3 py-5">
       <div
-        className="card border-secondary-subtle rounded-4 shadow-sm w-100"
+        className="card border-secondary-subtle rounded-4 shadow-sm w-100 "
         style={{ maxWidth: "420px" }}
       >
         <div className="card-body p-4 p-md-5">
@@ -35,6 +32,13 @@ const Login = ({ onLoggedIn }) => {
             onClick={handleLogin}
           >
             Sign in with Google
+          </button>
+          <button
+            type="button"
+            className="btn btn-link w-100 mt-3"
+            onClick={onShowSignUp}
+          >
+            Don't Have an account? Sign Up
           </button>
         </div>
       </div>
