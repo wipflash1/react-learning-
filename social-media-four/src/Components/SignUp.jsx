@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { useAuth } from "../Store/auth-context";
 
 const SignUp = ({ onShowLogin }) => {
+  const [error, setError] = useState(null);
   const { refreshUser } = useAuth();
   const nameRef = useRef();
   const emailRef = useRef();
@@ -11,6 +12,7 @@ const SignUp = ({ onShowLogin }) => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+    setError(null);
 
     const name = nameRef.current.value;
     const email = emailRef.current.value;
@@ -26,10 +28,12 @@ const SignUp = ({ onShowLogin }) => {
       refreshUser();
     } catch (error) {
       console.error(error);
-      if (error.code === "auth/invalid-credential") {
-        setError("Email or password is incorrect.");
-      } else if (error.code === "auth/too-many-requests") {
-        setError("Too many attempts. Please wait a moment and try again.");
+      if (error.code === "auth/email-already-in-use") {
+        setError("An account with this email already exists. Try logging in.");
+      } else if (error.code === "auth/weak-password") {
+        setError("Password must be at least 6 characters.");
+      } else if (error.code === "auth/invalid-email") {
+        setError("Please enter a valid email address.");
       } else if (error.code === "auth/network-request-failed") {
         setError("No internet connection. Check it and try again.");
       } else {
