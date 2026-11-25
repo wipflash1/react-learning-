@@ -26,8 +26,13 @@ const AuthProvider = ({ children }) => {
     signOut(auth);
   };
 
+  const refreshUser = () => {
+    const current = auth.currentUser;
+    setUser({ email: current.email, name: current.displayName });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, logout, loading }}>
+    <AuthContext.Provider value={{ user, logout, loading, refreshUser }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,4 +1,34 @@
+import { useRef } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../firebase";
+import { useAuth } from "../Store/auth-context";
+
 const SignUp = ({ onShowLogin }) => {
+  const { refreshUser } = useAuth();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      await updateProfile(result.user, { displayName: name });
+      refreshUser();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <section className="d-flex justify-content-center px-3 py-5">
       <div
@@ -16,11 +46,11 @@ const SignUp = ({ onShowLogin }) => {
             <h1 className="h3 fw-bold mb-1">Create your account</h1>
           </div>
 
-          {/* Sign-up logic (Firebase) is added in Step 2. */}
-          <form>
+          <form onSubmit={handleSignUp}>
             <div className="form-floating mb-3">
               <input
                 type="text"
+                ref={nameRef}
                 className="form-control"
                 id="signupName"
                 placeholder="Your name"
@@ -32,6 +62,7 @@ const SignUp = ({ onShowLogin }) => {
             <div className="form-floating mb-3">
               <input
                 type="email"
+                ref={emailRef}
                 className="form-control"
                 id="signupEmail"
                 placeholder="name@example.com"
@@ -43,6 +74,7 @@ const SignUp = ({ onShowLogin }) => {
             <div className="form-floating mb-3">
               <input
                 type="password"
+                ref={passwordRef}
                 className="form-control"
                 id="signupPassword"
                 placeholder="Password"
