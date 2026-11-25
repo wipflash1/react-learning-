@@ -1,8 +1,9 @@
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../firebase";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const Login = ({ onShowSignUp }) => {
+  const [error, setError] = useState(null);
   const emailRef = useRef();
   const passwordRef = useRef();
   const handleGoogleLogin = async () => {
@@ -20,6 +21,7 @@ const Login = ({ onShowSignUp }) => {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
       console.error(error);
+      setError("Email or password is incorrect.");
     }
   };
 
@@ -40,6 +42,11 @@ const Login = ({ onShowSignUp }) => {
             <h1 className="h3 fw-bold mb-1">Welcome To PostShelf</h1>
           </div>
           <form onSubmit={handleEmailLogin}>
+            {error && (
+              <div className="alert alert-danger py-2" role="alert">
+                {error}
+              </div>
+            )}
             <div className="form-floating mb-3">
               <input
                 ref={emailRef}
