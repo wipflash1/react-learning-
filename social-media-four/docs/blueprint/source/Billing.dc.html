@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PostShelf billing settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2450C9}a:hover{color:#1A3C99}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 960px; box-sizing: border-box; background: #F5F6F8; font-family: Inter, system-ui, sans-serif; color: #151922; display: flex; flex-direction: column">
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 24px; background: #FFFFFF; border-bottom: 1px solid #E2E5EA">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 32px; height: 32px; border-radius: 8px; background: #2450C9; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h4v12H3zM8 4h4v12H8zM13 5l3.5-1 2 11.5-3.5 1z"></path></svg></div>
+      <span style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 20px; font-weight: 700">PostShelf</span>
+      <span style="font-size: 12px; font-weight: 700; color: #151922; background: #F2A65A; padding: 3px 8px; border-radius: 999px">Premium</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+      <span style="width: 34px; height: 34px; border-radius: 17px; background: #E8EEFC; color: #2450C9; font-weight: 700; display: flex; align-items: center; justify-content: center">V</span>
+      <span style="font-size: 15px; font-weight: 600">Hi, Vaibhav</span>
+      <a href="Feed.dc.html" style="min-height: 40px; display: flex; align-items: center; padding: 0 14px; border: 1px solid #C9CED8; border-radius: 8px; color: #151922; text-decoration: none; font-size: 14px; font-weight: 600">Back to app</a>
+    </div>
+  </header>
+  <main style="width: 100%; max-width: 960px; box-sizing: border-box; margin: 0 auto; padding: 32px 24px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700">Billing</h1>
+      <span style="font-size: 12px; font-weight: 600; color: #8A4108; background: #FDF1E3; padding: 4px 10px; border-radius: 999px">PS-109 · planned · test mode</span>
+    </div>
+    <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: #E6F4EE; color: #1E6B4A; font-size: 15px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"></path></svg>Welcome to Premium. Your payment was confirmed.</div>
+    <section style="background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 16px; padding: 22px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #586172">Current plan</span>
+        <span style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700">Premium · Monthly</span>
+        <span style="font-size: 14px; color: #3D4553">Status: <strong style="color: #1E6B4A">Active</strong> · Renews on 25 Dec 2026 · ₹[price]</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px">
+        <a href="Pricing.dc.html" style="min-height: 44px; padding: 0 16px; display: flex; align-items: center; border: 1px solid #2450C9; border-radius: 10px; text-decoration: none; font-weight: 600">Change plan</a>
+        <button type="button" style="min-height: 44px; padding: 0 16px; border: 1px solid #E5B4B4; border-radius: 10px; background: #FFFFFF; color: #8F1D1D; font: inherit; font-weight: 600">Cancel subscription</button>
+      </div>
+    </section>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <section style="flex: 1 1 280px; background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 700">Today's usage</h2>
+        <div style="display: flex; justify-content: space-between; font-size: 14px"><span>AI evaluations</span><strong>4 of [n]</strong></div>
+        <div style="height: 8px; border-radius: 4px; background: #EEF0F3"><div style="width: 27%; height: 8px; border-radius: 4px; background: #2450C9"></div></div>
+        <span style="font-size: 13px; color: #586172">Resets at midnight (IST)</span>
+      </section>
+      <section style="flex: 1 1 280px; background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 700">If you cancel</h2>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3D4553">Premium stays on until 25 Dec 2026, then you move to Free. Your notes and answers are kept.</p>
+        <h2 style="margin: 6px 0 0; font-size: 16px; font-weight: 700">If a renewal fails</h2>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3D4553">We show a "payment due" notice and retry. Premium pauses if it isn't paid within the grace period.</p>
+      </section>
+    </div>
+    <section style="background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-size: 16px; font-weight: 700">Payment history</h2>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14px">
+          <thead>
+            <tr style="text-align: left; color: #586172"><th style="padding: 10px 8px; border-bottom: 1px solid #E2E5EA; font-weight: 600">Date</th><th style="padding: 10px 8px; border-bottom: 1px solid #E2E5EA; font-weight: 600">Description</th><th style="padding: 10px 8px; border-bottom: 1px solid #E2E5EA; font-weight: 600">Amount</th><th style="padding: 10px 8px; border-bottom: 1px solid #E2E5EA; font-weight: 600">Status</th><th style="padding: 10px 8px; border-bottom: 1px solid #E2E5EA; font-weight: 600">Receipt</th></tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding: 12px 8px; border-bottom: 1px solid #EEF0F3">25 Nov 2026</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF0F3">Premium · Monthly</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF0F3">₹[price]</td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF0F3"><span style="font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: #E6F4EE; color: #1E6B4A">Paid</span></td><td style="padding: 12px 8px; border-bottom: 1px solid #EEF0F3"><a href="#">Download</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

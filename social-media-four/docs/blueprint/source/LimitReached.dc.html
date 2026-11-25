@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Daily limit reached</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2450C9}a:hover{color:#1A3C99}
+</style>
+</helmet>
+<div style="width: 560px; height: 560px; box-sizing: border-box; background: #5A606B; font-family: Inter, system-ui, sans-serif; color: #151922; display: flex; align-items: center; justify-content: center; padding: 32px">
+  <div role="dialog" aria-modal="true" aria-labelledby="limitTitle" style="width: 100%; box-sizing: border-box; background: #FFFFFF; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+    <div style="width: 48px; height: 48px; border-radius: 12px; background: #FDF1E3; color: #8A4108; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3a7 7 0 100 14 7 7 0 000-14zM10 6v4l2.5 2"></path></svg></div>
+    <h2 id="limitTitle" style="margin: 0; font-size: 22px; font-weight: 700">You've used today's 3 evaluations</h2>
+    <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3D4553">Free evaluations reset at midnight. Your answer photos are saved, so you can evaluate them tomorrow, or upgrade to keep practising now.</p>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 12px 14px; border-radius: 10px; background: #F5F6F8"><span>Today</span><strong>3 of 3 used</strong></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px">
+      <a href="Pricing.dc.html" style="flex: 1 1 180px; min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: #2450C9; color: #FFFFFF; text-decoration: none; font-weight: 600">See Premium</a>
+      <a href="Answer.dc.html" style="flex: 1 1 140px; min-height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED8; border-radius: 10px; color: #151922; text-decoration: none; font-weight: 600">Maybe later</a>
+    </div>
+    <span style="font-size: 12px; font-weight: 600; color: #8A4108">PS-109 · shown when evaluateAnswer returns "limit-reached"</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":560,"height":560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
