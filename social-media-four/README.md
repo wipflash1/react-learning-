@@ -1,3 +1,8 @@
+> **📦 PostShelf has moved.** It now lives in its own repository: **[wipflash1/PostShelf](https://github.com/wipflash1/PostShelf)** (private), with its full commit history.
+> This folder is an archived copy as of 25 Nov 2026. Don't make new changes here; work in the new repository.
+
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
