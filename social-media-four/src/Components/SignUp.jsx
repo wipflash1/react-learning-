@@ -26,6 +26,15 @@ const SignUp = ({ onShowLogin }) => {
       refreshUser();
     } catch (error) {
       console.error(error);
+      if (error.code === "auth/invalid-credential") {
+        setError("Email or password is incorrect.");
+      } else if (error.code === "auth/too-many-requests") {
+        setError("Too many attempts. Please wait a moment and try again.");
+      } else if (error.code === "auth/network-request-failed") {
+        setError("No internet connection. Check it and try again.");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -47,6 +56,11 @@ const SignUp = ({ onShowLogin }) => {
           </div>
 
           <form onSubmit={handleSignUp}>
+            {error && (
+              <div className="alert alert-danger py-2" role="alert">
+                {error}
+              </div>
+            )}
             <div className="form-floating mb-3">
               <input
                 type="text"
