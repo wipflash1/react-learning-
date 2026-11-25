@@ -46,7 +46,16 @@ const NewsFeed = () => {
       </div>
     );
   }
-  return <h1>News Update </h1>;
+  return (
+    <div>
+      <h2 className="mb-3">Today's News</h2>
+      <ul>
+        {news.map((article) => (
+          <li key={article.url}>{article.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default NewsFeed;
