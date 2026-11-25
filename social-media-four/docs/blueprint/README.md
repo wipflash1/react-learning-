@@ -16,6 +16,9 @@ Press **Play** on any screen and use the sidebar to move between them. The link 
 | 5 | Syllabus Tracker | PS-106 | Backlog | Overall coverage, progress per paper, GS2 topic tree with note counts, weak areas |
 | 6 | Answer Writing: write & capture | PS-108 | Backlog | Question, time taken, capture or upload the handwritten pages, **Evaluate with AI** |
 | 7 | Answer Writing: AI feedback | PS-108 | Backlog | Overall score, words, time, **writing speed**, rubric scores, what the AI read, speed trend |
+| 8 | Pricing | PS-109 | Backlog | Free vs Premium, monthly/yearly toggle, **Upgrade to Premium**, how the upgrade works |
+| 9 | Billing settings | PS-109 | Backlog | Current plan and status, renewal date, today's usage, cancel, payment history |
+| 10 | Limit reached dialog | PS-109 | Backlog | Shown after the free 3 evaluations a day, with **See Premium** or **Maybe later** |
 
 Values in brackets (`[days left]`, `[x]%`, `[Polity headline from GNews]`) stand for real data. Numbers such as scores and progress bars are sample values for illustration.
 
