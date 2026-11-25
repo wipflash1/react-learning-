@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PostShelf current affairs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2450C9}a:hover{color:#1A3C99}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 960px; box-sizing: border-box; background: #F5F6F8; font-family: Inter, system-ui, sans-serif; color: #151922; display: flex; flex-direction: column">
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 24px; background: #FFFFFF; border-bottom: 1px solid #E2E5EA">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 32px; height: 32px; border-radius: 8px; background: #2450C9; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h4v12H3zM8 4h4v12H8zM13 5l3.5-1 2 11.5-3.5 1z"></path></svg></div>
+      <span style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 20px; font-weight: 700">PostShelf</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+      <span style="font-size: 13px; font-weight: 600; color: #8A4108; background: #FDF1E3; padding: 6px 12px; border-radius: 999px">Prelims in [days left] days</span>
+      <span style="width: 34px; height: 34px; border-radius: 17px; background: #E8EEFC; color: #2450C9; font-weight: 700; display: flex; align-items: center; justify-content: center">V</span>
+      <span style="font-size: 15px; font-weight: 600">Hi, Vaibhav</span>
+      <a href="Main.dc.html" style="min-height: 40px; display: flex; align-items: center; padding: 0 14px; border: 1px solid #C9CED8; border-radius: 8px; color: #151922; text-decoration: none; font-size: 14px; font-weight: 600">Log out</a>
+    </div>
+  </header>
+  <div style="display: flex; flex-wrap: wrap; flex: 1">
+    <nav aria-label="Main" style="flex: 1 1 220px; box-sizing: border-box; padding: 20px 14px; background: #FFFFFF; border-right: 1px solid #E2E5EA; display: flex; flex-direction: column; gap: 4px">
+      <a href="Feed.dc.html" style="min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; color: #151922; text-decoration: none; font-size: 15px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5L10 4l7 5.5V17h-4.5v-4.5h-5V17H3z"></path></svg>Home</a>
+      <a href="News.dc.html" style="min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: #E8EEFC; color: #2450C9; font-weight: 600; text-decoration: none; font-size: 15px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h12v12H5a2 2 0 01-2-2zM15 7h2v7a2 2 0 01-2 2M6 7h6M6 10h6M6 13h4"></path></svg>Current Affairs</a>
+      <a href="Notes.dc.html" style="min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; color: #151922; text-decoration: none; font-size: 15px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h7l3 3v11H5zM12 3v3h3M8 10h4M8 13h4"></path></svg>My Notes</a>
+      <a href="Syllabus.dc.html" style="min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; color: #151922; text-decoration: none; font-size: 15px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l1.5 1.5L8 4.5M3.5 13l1.5 1.5L8 11.5M11 6.5h6M11 13.5h6"></path></svg>Syllabus</a>
+      <a href="Answer.dc.html" style="min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; color: #151922; text-decoration: none; font-size: 15px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16l1-4 8-8 3 3-8 8zM11 6l3 3"></path></svg>Answer Writing</a>
+    </nav>
+    <main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h1 style="margin: 0; font-size: 26px; font-weight: 700">Current Affairs</h1>
+          <p style="margin: 0; font-size: 14px; color: #586172">India headlines from GNews, grouped by UPSC theme. Free plan: about 12 hours behind.</p>
+        </div>
+        <span style="font-size: 12px; font-weight: 600; color: #8A4108; background: #FDF1E3; padding: 4px 10px; border-radius: 999px">PS-101 built · PS-104 in progress · PS-107 planned</span>
+      </div>
+      <div role="group" aria-label="Theme" style="display: flex; flex-wrap: wrap; gap: 8px">
+        <button type="button" style="min-height: 40px; padding: 0 14px; border: 1px solid #2450C9; border-radius: 999px; background: #FFFFFF; color: #2450C9; font: inherit; font-size: 14px">All</button>
+        <button type="button" aria-pressed="true" style="min-height: 40px; padding: 0 14px; border: 1px solid #2450C9; border-radius: 999px; background: #2450C9; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600">Polity &amp; Governance</button>
+        <button type="button" style="min-height: 40px; padding: 0 14px; border: 1px solid #2450C9; border-radius: 999px; background: #FFFFFF; color: #2450C9; font: inherit; font-size: 14px">Economy</button>
+        <button type="button" style="min-height: 40px; padding: 0 14px; border: 1px solid #2450C9; border-radius: 999px; background: #FFFFFF; color: #2450C9; font: inherit; font-size: 14px">Environment</button>
+        <button type="button" style="min-height: 40px; padding: 0 14px; border: 1px solid #2450C9; border-radius: 999px; background: #FFFFFF; color: #2450C9; font: inherit; font-size: 14px">International Relations</button>
+        <button type="button" style="min-height: 40px; padding: 0 14px; border: 1px solid #2450C9; border-radius: 999px; background: #FFFFFF; color: #2450C9; font: inherit; font-size: 14px">Science &amp; Tech</button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px">
+        <article style="background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="height: 150px; background: #DCE3F2; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3D4553">Article image</div>
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: #E8EEFC; color: #2450C9">GS2 · Polity</span>
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4">[Polity headline from GNews]</h2>
+            <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3D4553">The article's short description from the source, two lines at most.</p>
+            <span style="font-size: 13px; color: #586172">[Source] · 25 Nov 2026</span>
+            <div style="display: flex; gap: 8px; margin-top: auto; padding-top: 6px">
+              <a href="#" style="flex: 1; min-height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #2450C9; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600">Read more</a>
+              <a href="Notes.dc.html" style="flex: 1; min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 8px; background: #E6F4EE; color: #1E6B4A; text-decoration: none; font-size: 14px; font-weight: 600"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"></path></svg>Saved</a>
+            </div>
+          </div>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="height: 150px; background: #E4E9DC; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3D4553">Article image</div>
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: #E8EEFC; color: #2450C9">GS2 · Governance</span>
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4">[Governance headline from GNews]</h2>
+            <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3D4553">The article's short description from the source, two lines at most.</p>
+            <span style="font-size: 13px; color: #586172">[Source] · 25 Nov 2026</span>
+            <div style="display: flex; gap: 8px; margin-top: auto; padding-top: 6px">
+              <a href="#" style="flex: 1; min-height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #2450C9; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600">Read more</a>
+              <a href="Notes.dc.html" style="flex: 1; min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 8px; background: #2450C9; color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10v14l-5-3.5L5 17z"></path></svg>Save to notes</a>
+            </div>
+          </div>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="height: 150px; background: #F0E4D8; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #3D4553">Article image</div>
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: #E8EEFC; color: #2450C9">GS2 · Polity</span>
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4">[Polity headline from GNews]</h2>
+            <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3D4553">The article's short description from the source, two lines at most.</p>
+            <span style="font-size: 13px; color: #586172">[Source] · 25 Nov 2026</span>
+            <div style="display: flex; gap: 8px; margin-top: auto; padding-top: 6px">
+              <a href="#" style="flex: 1; min-height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid #2450C9; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600">Read more</a>
+              <a href="Notes.dc.html" style="flex: 1; min-height: 40px; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 8px; background: #2450C9; color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10v14l-5-3.5L5 17z"></path></svg>Save to notes</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <section style="flex: 1 1 300px; background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 15px; font-weight: 700">While loading</h2>
+          <p style="margin: 0; font-size: 14px; color: #586172">The theme buttons stay; only the area below shows a spinner (PS-104 Step 3b).</p>
+        </section>
+        <section style="flex: 1 1 300px; background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 15px; font-weight: 700">If it fails</h2>
+          <div role="alert" style="font-size: 14px; padding: 10px 12px; border-radius: 8px; background: #FBE9E9; color: #8F1D1D">Couldn't load today's news. Please try again later.</div>
+        </section>
+        <section style="flex: 1 1 300px; background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-size: 15px; font-weight: 700">Monthly compilation</h2>
+          <p style="margin: 0; font-size: 14px; color: #586172">Every saved article for a month on one printable page (PS-107 stretch).</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
