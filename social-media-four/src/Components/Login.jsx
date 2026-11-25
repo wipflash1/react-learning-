@@ -15,13 +15,22 @@ const Login = ({ onShowSignUp }) => {
   };
   const handleEmailLogin = async (e) => {
     e.preventDefault();
+    setError(null);
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
       console.error(error);
-      setError("Email or password is incorrect.");
+      if (error.code === "auth/invalid-credential") {
+        setError("Email or password is incorrect.");
+      } else if (error.code === "auth/too-many-requests") {
+        setError("Too many attempts. Please wait a moment and try again.");
+      } else if (error.code === "auth/network-request-failed") {
+        setError("No internet connection. Check it and try again.");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     }
   };
 
