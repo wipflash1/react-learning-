@@ -1,6 +1,6 @@
 # News Feed
 
-**Ticket:** PS-101 · **Branch:** `news-feed` · **Deadline:** Fri, 27 Nov 2026 · **Status:** In progress (N1–N4 done)
+**Ticket:** PS-101 · **Branch:** `news-feed` · **Deadline:** Fri, 27 Nov 2026 · **Status:** Done (N1–N5); N6 deferred
 
 ## Goal
 A "Today's News" tab that shows today's top real-world headlines from the GNews API, so PostShelf has live content alongside users' own posts.
@@ -8,7 +8,8 @@ A "Today's News" tab that shows today's top real-world headlines from the GNews 
 ## Files
 | File | Role |
 |---|---|
-| `src/features/news-feed/NewsFeed.jsx` | Fetches headlines and renders them. |
+| `src/features/news-feed/NewsFeed.jsx` | Fetches headlines and renders the loading, error and grid states. |
+| `src/features/news-feed/NewsCard.jsx` | One article as a Bootstrap card; gets `article` as a prop. |
 | `src/Components/Sidebar.jsx` | `tabs` array entry `{ id: "News", label: "Today's News", Icon: FaNewspaper }`. |
 | `src/App.jsx` | Renders `<NewsFeed />` when `selectedTab === "News"`. |
 | `.env` | Holds `VITE_GNEWS_KEY`. Ignored by git (`.gitignore`). |
@@ -47,8 +48,8 @@ Sidebar "Today's News" click
 - [x] N2: add the "Today's News" tab in `Sidebar.jsx` and render `<NewsFeed />` in `App.jsx`
 - [x] N3: fetch headlines in `useEffect` (`try/catch`, check `res.ok`, `setNews`)
 - [x] N4: loading spinner, error message, and an `AbortController` cleanup that cancels the request when the effect is cleaned up (StrictMode, tab switch)
-- [ ] N5: render articles as cards: image, title, source, date, "Read more" link
-- [ ] N6 *(stretch)*: category filter (general, technology, sports, business)
+- [x] N5: render articles as cards (`NewsCard.jsx`): image, title, description, source, date, and a "Read more" link in a responsive grid
+- [ ] N6 *(deferred)*: category filter (general, technology, sports, business). Left for a future ticket.
 
 ## Testing
 1. Log in, then click **Today's News**.

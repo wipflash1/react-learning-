@@ -11,7 +11,7 @@ Each feature gets **two folders** with the same name:
 
 | Ticket | Feature | Code | Spec | Branch | Status |
 |---|---|---|---|---|---|
-| PS-101 | News Feed | [`src/features/news-feed/`](../../src/features/news-feed/) | [spec](news-feed/README.md) | `news-feed` | In progress (N1–N2 done) |
+| PS-101 | News Feed | [`src/features/news-feed/`](../../src/features/news-feed/) | [spec](news-feed/README.md) | `news-feed` | Done (N1–N5), N6 deferred |
 
 Older features (posts, Google login) were built before this convention, so they still live in `src/Components/` and `src/Store/`.
 
