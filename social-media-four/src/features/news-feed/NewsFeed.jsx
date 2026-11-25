@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../../Components/LoadingSpinner";
+
 const NewsFeed = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -18,6 +20,7 @@ const NewsFeed = () => {
         const data = await res.json();
         setNews(data.articles);
       } catch (error) {
+        setError("Couldn't load today's news. Please try again later.");
         console.error(error);
       } finally {
         setLoading(false);
@@ -26,12 +29,18 @@ const NewsFeed = () => {
 
     fetchNews();
   }, []);
-  console.log(news);
 
   if (loading) {
     return <LoadingSpinner />;
   }
-  return <h1>News Update here </h1>;
+  if (error) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        {error}
+      </div>
+    );
+  }
+  return <h1>News Update </h1>;
 };
 
 export default NewsFeed;
