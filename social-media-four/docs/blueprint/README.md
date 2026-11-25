@@ -19,6 +19,10 @@ Press **Play** on any screen and use the sidebar to move between them. The link 
 
 Values in brackets (`[days left]`, `[x]%`, `[Polity headline from GNews]`) stand for real data. Numbers such as scores and progress bars are sample values for illustration.
 
+## Technical design
+
+[TECHNICAL.md](TECHNICAL.md) explains how these screens are built: the stack, the Firestore data model and security rules, the components and state for each screen, the AI-evaluation backend for Answer Writing, and the order the tickets depend on.
+
 ## Design basics
 
 The blueprint is a target, not a pixel spec: build it with Bootstrap, staying close to these choices.
