@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PostShelf login</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2450C9}a:hover{color:#1A3C99}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 860px; box-sizing: border-box; background: #F5F6F8; font-family: Inter, system-ui, sans-serif; color: #151922; display: flex; flex-wrap: wrap; align-items: stretch">
+  <section style="flex: 1 1 420px; min-width: 0; box-sizing: border-box; padding: 64px 56px; background: #151922; color: #FFFFFF; display: flex; flex-direction: column; justify-content: center; gap: 32px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div style="width: 40px; height: 40px; border-radius: 10px; background: #2450C9; display: flex; align-items: center; justify-content: center">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h4v12H3zM8 4h4v12H8zM13 5l3.5-1 2 11.5-3.5 1z"></path></svg>
+      </div>
+      <span style="font-family: 'Space Grotesk', Inter, sans-serif; font-size: 24px; font-weight: 700">PostShelf</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 44px; line-height: 1.1; font-weight: 700">Your UPSC study shelf, in one place.</h1>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9CED8; max-width: 460px">Current affairs, private notes, syllabus coverage and daily answer practice, with a feed to discuss it all.</p>
+    </div>
+    <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px">
+      <li style="display: flex; gap: 12px; align-items: center; font-size: 15px"><span style="width: 8px; height: 8px; border-radius: 4px; background: #F2A65A"></span>Current affairs grouped by GS paper</li>
+      <li style="display: flex; gap: 12px; align-items: center; font-size: 15px"><span style="width: 8px; height: 8px; border-radius: 4px; background: #F2A65A"></span>Private notes, saved per student</li>
+      <li style="display: flex; gap: 12px; align-items: center; font-size: 15px"><span style="width: 8px; height: 8px; border-radius: 4px; background: #F2A65A"></span>Syllabus tracker with coverage per paper</li>
+      <li style="display: flex; gap: 12px; align-items: center; font-size: 15px"><span style="width: 8px; height: 8px; border-radius: 4px; background: #F2A65A"></span>Timed Mains answer writing</li>
+    </ul>
+  </section>
+  <section style="flex: 1 1 460px; min-width: 0; box-sizing: border-box; padding: 48px 24px; display: flex; align-items: center; justify-content: center">
+    <div style="width: 100%; max-width: 420px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 16px; padding: 40px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #8A4108; background: #FDF1E3; padding: 4px 10px; border-radius: 999px">Built · PS-102</span>
+        <h2 style="margin: 0; font-size: 26px; font-weight: 700">Welcome To PostShelf</h2>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 14px; margin: 0">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="loginEmail" style="font-size: 14px; font-weight: 600">Email address</label>
+          <input id="loginEmail" type="email" placeholder="name@example.com" style="height: 46px; box-sizing: border-box; padding: 0 14px; border: 1px solid #C9CED8; border-radius: 10px; font: inherit; font-size: 15px">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="loginPassword" style="font-size: 14px; font-weight: 600">Password</label>
+          <input id="loginPassword" type="password" placeholder="Password" style="height: 46px; box-sizing: border-box; padding: 0 14px; border: 1px solid #C9CED8; border-radius: 10px; font: inherit; font-size: 15px">
+        </div>
+        <a href="Feed.dc.html" style="height: 46px; display: flex; align-items: center; justify-content: center; background: #2450C9; color: #FFFFFF; border-radius: 10px; font-weight: 600; text-decoration: none">Log in</a>
+      </form>
+      <div style="display: flex; align-items: center; gap: 12px; color: #586172; font-size: 14px">
+        <span style="flex: 1; height: 1px; background: #E2E5EA"></span>or<span style="flex: 1; height: 1px; background: #E2E5EA"></span>
+      </div>
+      <a href="Feed.dc.html" style="height: 46px; display: flex; align-items: center; justify-content: center; border: 1px solid #C9CED8; color: #151922; border-radius: 10px; font-weight: 600; text-decoration: none">Sign in with Google</a>
+      <a href="Feed.dc.html" style="align-self: center; font-size: 14px; min-height: 44px; display: flex; align-items: center">Don't have an account? Sign up</a>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

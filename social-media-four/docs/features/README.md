@@ -1,5 +1,7 @@
 # PostShelf feature docs
 
+For the big picture of every screen, see the [product blueprint](../blueprint/README.md).
+
 Each feature gets **two folders** with the same name:
 
 | Folder | What goes in it |
