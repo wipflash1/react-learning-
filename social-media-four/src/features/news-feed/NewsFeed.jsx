@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../../Components/LoadingSpinner";
+import NewsCard from "./NewsCard";
 
 const NewsFeed = () => {
   const [news, setNews] = useState([]);
@@ -49,11 +50,13 @@ const NewsFeed = () => {
   return (
     <div>
       <h2 className="mb-3">Today's News</h2>
-      <ul>
+      <div className="row g-3">
         {news.map((article) => (
-          <li key={article.url}>{article.title}</li>
+          <div className="col-12 col-md-6 col-lg-4" key={article.url}>
+            <NewsCard article={article} />
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
