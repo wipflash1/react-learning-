@@ -7,6 +7,7 @@ import PostListProvider from "./Store/Posts-List-store";
 import PostList from "./Components/PostList";
 import CreatePost from "./Components/CreatePost";
 import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
 import { useState } from "react";
 import LoadSamplePosts from "./Components/LoadSamplePost";
 import { useAuth } from "./Store/auth-context";
@@ -14,6 +15,7 @@ import LoadingSpinner from "./Components/LoadingSpinner";
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("Home");
+  const [authPage, setAuthPage] = useState("Login");
   const goHome = () => setSelectedTab("Home");
   const { user, loading } = useAuth();
 
@@ -22,7 +24,12 @@ function App() {
   }
 
   if (!user) {
-    return <Login />;
+    if (authPage === "SignUp") {
+      // We're ON SignUp. Its button should go BACK to Login.
+      return <SignUp onShowLogin={() => setAuthPage("Login")} />;
+    }
+    // We're ON Login. Its button should go TO SignUp.
+    return <Login onShowSignUp={() => setAuthPage("SignUp")} />;
   }
 
   return (
