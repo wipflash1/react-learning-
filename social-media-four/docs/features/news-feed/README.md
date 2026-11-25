@@ -1,0 +1,64 @@
+# News Feed
+
+**Ticket:** PS-101 · **Branch:** `news-feed` · **Deadline:** Fri, 27 Nov 2026 · **Status:** Done (N1–N5); N6 deferred
+
+## Goal
+A "Today's News" tab that shows today's top real-world headlines from the GNews API, so PostShelf has live content alongside users' own posts.
+
+## Files
+| File | Role |
+|---|---|
+| `src/features/news-feed/NewsFeed.jsx` | Fetches headlines and renders the loading, error and grid states. |
+| `src/features/news-feed/NewsCard.jsx` | One article as a Bootstrap card; gets `article` as a prop. |
+| `src/Components/Sidebar.jsx` | `tabs` array entry `{ id: "News", label: "Today's News", Icon: FaNewspaper }`. |
+| `src/App.jsx` | Renders `<NewsFeed />` when `selectedTab === "News"`. |
+| `.env` | Holds `VITE_GNEWS_KEY`. Ignored by git (`.gitignore`). |
+
+## How it works
+```
+Sidebar "Today's News" click
+  → setSelectedTab("News")            (state lives in App)
+  → App renders <NewsFeed />
+  → useEffect(..., [])                runs once on mount
+      → fetch GNews top-headlines
+      → setNews(data.articles)
+  → NewsFeed re-renders with articles
+```
+
+**State in `NewsFeed`:**
+- `news`: array of articles, starts as `[]`
+- `loading`: `true` until the fetch finishes, so the spinner shows
+- `error`: a friendly message when the fetch fails, starts as `null`
+
+## External services / config
+- **API:** `GET https://gnews.io/api/v4/top-headlines?lang=en&max=10&apikey=<key>`
+- **Response:** `{ totalArticles, articles: [{ title, description, url, image, publishedAt, source: { name } }] }`
+- **Key:** `VITE_GNEWS_KEY` in `.env`, read with `import.meta.env.VITE_GNEWS_KEY`. Restart `npm run dev` after editing `.env`.
+- **Limits:** the free plan allows about 100 requests/day.
+
+## React concepts used
+- **Lifting state up:** `selectedTab` lives in `App`; `Sidebar` gets `setSelectedTab`.
+- **`useEffect` with `[]`:** fetch once when the component mounts.
+- **An async function inside the effect:** the effect callback itself can't be `async`.
+- **StrictMode:** in development, effects run, clean up, and run again, so the fetch fires twice. A cleanup function handles this.
+- **Environment variables:** only `VITE_`-prefixed variables reach browser code.
+
+## Steps
+- [x] N1: move the GNews key into `.env` and read it with `import.meta.env`
+- [x] N2: add the "Today's News" tab in `Sidebar.jsx` and render `<NewsFeed />` in `App.jsx`
+- [x] N3: fetch headlines in `useEffect` (`try/catch`, check `res.ok`, `setNews`)
+- [x] N4: loading spinner, error message, and an `AbortController` cleanup that cancels the request when the effect is cleaned up (StrictMode, tab switch)
+- [x] N5: render articles as cards (`NewsCard.jsx`): image, title, description, source, date, and a "Read more" link in a responsive grid
+- [ ] N6 *(deferred)*: category filter (general, technology, sports, business). Left for a future ticket.
+
+## Testing
+1. Log in, then click **Today's News**.
+2. Network tab: a `gnews.io` request returns **200**.
+3. The headlines render; with the network turned off, an error message shows instead.
+4. `npm run lint` shows no errors from `src/features/news-feed/`.
+
+## Decisions and known limits
+- **The key is visible in the browser bundle.** `.env` keeps it out of git, but every `VITE_` value ships to the client. Fine for a learning project; a production app would call GNews from a backend.
+- **Free plan delay:** GNews returns articles with a 12-hour delay on the free plan, and limits requests per second and per day (HTTP 429 when exceeded).
+- **Feature folder:** this is the first feature to use `src/features/<name>/`. Shared components (`LoadingSpinner`, `Message`) are imported from `src/Components/`.
+- **Branch:** `news-feed` was created from `add-social-media-four`, and the finished PS-102 work was merged in on 25 Nov 2026. Merge PR #1 into `main` first, so this feature's PR shows only News Feed changes.

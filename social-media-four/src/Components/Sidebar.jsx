@@ -1,9 +1,12 @@
 import { MdCloudDownload, MdHome, MdPostAdd } from "react-icons/md";
 
+import { FaNewspaper } from "react-icons/fa";
+
 const tabs = [
   { id: "Home", label: "Home", Icon: MdHome },
   { id: "CreatePost", label: "Create Post", Icon: MdPostAdd },
   { id: "LoadSamplePosts", label: "Load Sample Posts", Icon: MdCloudDownload },
+  { id: "News", label: "Today's News ", Icon: FaNewspaper },
 ];
 
 const SideBar = ({ selectedTab, setSelectedTab }) => {
