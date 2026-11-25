@@ -1,6 +1,6 @@
 # News Feed
 
-**Ticket:** PS-101 · **Branch:** `news-feed` · **Deadline:** Fri, 27 Nov 2026 · **Status:** In progress (N1–N2 done)
+**Ticket:** PS-101 · **Branch:** `news-feed` · **Deadline:** Fri, 27 Nov 2026 · **Status:** In progress (N1–N4 done)
 
 ## Goal
 A "Today's News" tab that shows today's top real-world headlines from the GNews API, so PostShelf has live content alongside users' own posts.
@@ -26,7 +26,8 @@ Sidebar "Today's News" click
 
 **State in `NewsFeed`:**
 - `news`: array of articles, starts as `[]`
-- *(N4)* `loading`, `error`: for the spinner and the error message
+- `loading`: `true` until the fetch finishes, so the spinner shows
+- `error`: a friendly message when the fetch fails, starts as `null`
 
 ## External services / config
 - **API:** `GET https://gnews.io/api/v4/top-headlines?lang=en&max=10&apikey=<key>`
@@ -44,8 +45,8 @@ Sidebar "Today's News" click
 ## Steps
 - [x] N1: move the GNews key into `.env` and read it with `import.meta.env`
 - [x] N2: add the "Today's News" tab in `Sidebar.jsx` and render `<NewsFeed />` in `App.jsx`
-- [ ] N3: fetch headlines in `useEffect` (`try/catch`, check `res.ok`, `setNews`)
-- [ ] N4: loading spinner and error message; cleanup for StrictMode
+- [x] N3: fetch headlines in `useEffect` (`try/catch`, check `res.ok`, `setNews`)
+- [x] N4: loading spinner, error message, and an `AbortController` cleanup that cancels the request when the effect is cleaned up (StrictMode, tab switch)
 - [ ] N5: render articles as cards: image, title, source, date, "Read more" link
 - [ ] N6 *(stretch)*: category filter (general, technology, sports, business)
 
@@ -57,5 +58,6 @@ Sidebar "Today's News" click
 
 ## Decisions and known limits
 - **The key is visible in the browser bundle.** `.env` keeps it out of git, but every `VITE_` value ships to the client. Fine for a learning project; a production app would call GNews from a backend.
+- **Free plan delay:** GNews returns articles with a 12-hour delay on the free plan, and limits requests per second and per day (HTTP 429 when exceeded).
 - **Feature folder:** this is the first feature to use `src/features/<name>/`. Shared components (`LoadingSpinner`, `Message`) are imported from `src/Components/`.
-- **Branch:** `news-feed` was created from `add-social-media-four`, so it also carries the PS-102 sign-up WIP commit. Merge PR #1 first, or rebase onto `main`, before opening this feature's PR.
+- **Branch:** `news-feed` was created from `add-social-media-four`, and the finished PS-102 work was merged in on 25 Nov 2026. Merge PR #1 into `main` first, so this feature's PR shows only News Feed changes.
